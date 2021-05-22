@@ -1,0 +1,31 @@
+plugins {
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'tarsiswt'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencyManagement {
+    imports {
+        mavenBom("org.springframework.boot:spring-boot-dependencies:2.2.0.RELEASE")
+    }
+}
+
+dependencies {
+    annotationProcessor "org.springframework.boot:spring-boot-autoconfigure-processor"
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
+    implementation 'com.google.guava:guava:28.0-jre'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.projectlombok:lombok'
+}
+
+test {
+    useJUnitPlatform()
+}
